@@ -11,7 +11,9 @@ mycursor = conn.cursor()
 
 @app.route('/')
 def home():
-    return render_template('home.html')
+    mycursor.execute("SELECT * FROM doctors")
+    data = mycursor.fetchall()
+    return render_template('home.html', data=data)
 
 
 @app.route('/about')
