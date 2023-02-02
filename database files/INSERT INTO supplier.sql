@@ -5,3 +5,7 @@ INSERT INTO supplier(company_name, contact_name, address, postal_code, city, cou
 INSERT INTO supplier(company_name, contact_name, address, postal_code, city, country, phone, email) VALUES('Twinings', 'Bob Tavener', 'South Way', 'SP10 5AQ', 'Andover', 'UK', '+441264334477', 'twinings.direct@twinings.com');
 
 INSERT INTO supplier(company_name, contact_name, address, postal_code, city, country, phone, email) VALUES('Unilever', 'Hein Schumacher', '100 Victoria Embankment', 'EC4Y 0DY', 'London', 'UK', '+441372945000', 'webqueries@computershare.co.uk');
+
+INSERT INTO supplier(company_name, contact_name, address, postal_code, city, country, phone, email) VALUES('Harney & Sons Fine Teas', 'Brigitte Harney', '5723 Route 22', 'NY 12546', 'Millerton', 'USA', '8884276398', 'customerservice@harneyteas.com');
+
+INSERT INTO supplier(company_name, contact_name, address, postal_code, city, country, phone, email) VALUES('Yogi Tea', ' Giancarlo Marcaccin', 'Burchardstraße 24', '20095', 'Hamburg', 'Germany', '+4904042301119', ' info.eu@yogiproducts.com');
