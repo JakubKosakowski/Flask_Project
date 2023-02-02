@@ -1,0 +1,1 @@
+INSERT INTO supplier(company_name, contact_name, address, postal_code, city, country, email) VALUES('Çaykur', 'İmdat Sütlüoğlu', 'Mufti Mah. Menderes Boulevard', '53080', 'RİZE', 'Turkey', 'caykur@caykur.gov.tr');
