@@ -13,3 +13,6 @@ INSERT INTO supplier(company_name, contact_name, address, postal_code, city, cou
 INSERT INTO supplier(company_name, contact_name, address, postal_code, city, country, phone, email) VALUES('Lavazza', 'Antonio Baravalle', 'Via Bologna 32', '10152', 'Turin', 'Italy', '+3901123981', 'info@lavazza.it');
 
 INSERT INTO supplier(company_name, contact_name, address, postal_code, city, country, phone, email) VALUES('Intelligentsia Coffee', 'James McLaughlin', '1850 W. Fulton Street', '60612', 'Chicago', 'USA', '3122530594', 'customersupport@intelligentsiacoffee.com');
+
+INSERT INTO supplier(company_name, contact_name, address, postal_code, city, country, phone, email) VALUES('Stumptown Coffee Roasters', 'Sean Sullivan', '100 South East Salmon Street', '97214', 'Portland', 'USA', '8557113385', 'info@stumptowncoffee.com');
+
