@@ -7,3 +7,5 @@ INSERT INTO type_of_product(name, brewing_time, brewing_temperature, amount_per_
 INSERT INTO type_of_product(name, brewing_time, brewing_temperature, amount_per_cup) VALUES('red', '3-5 min', '95°C', '2-3g/120ml');
 
 INSERT INTO type_of_product(name, brewing_time, brewing_temperature, amount_per_cup) VALUES('white', '1-3 min', '85-90°C', '2g/120ml');
+
+INSERT INTO type_of_product(name, brewing_time, brewing_temperature, amount_per_cup) VALUES('yellow', '2-3 min', '80-85°C', '2-3g/120ml');
