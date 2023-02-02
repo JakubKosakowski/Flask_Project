@@ -1,0 +1,1 @@
+INSERT INTO type_of_product(name, brewing_time, brewing_temperature, amount_per_cup) VALUES('black', '1-3 min', '95°C', '3g/120ml');
