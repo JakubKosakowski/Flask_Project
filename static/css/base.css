@@ -18,3 +18,14 @@ body{
     color: red;
     font-size: 20px;
 }
+
+.offers {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.offer{
+    width: 350px;
+    height: 350px;
+    margin: 30px;
+}
