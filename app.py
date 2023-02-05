@@ -1,21 +1,24 @@
 from flask import Flask, render_template
-import psycopg2
+from sql_utils import execute_sql
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:password@localhost/hospital'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
-conn = psycopg2.connect(database="hospital", user="postgres", password="password", host="localhost")
-mycursor = conn.cursor()
-
-
 @app.route('/')
 def home():
-    mycursor.execute("SELECT * FROM doctors")
-    data = mycursor.fetchall()
+    data = execute_sql(
+        "datab",
+        """
+            SELECT company_name, address, email
+            FROM supplier;
+        """
+    )
     return render_template('home.html', data=data)
 
 
 @app.route('/about')
 def about():
     return render_template('about.html')
+
+
+if __name__ == '__main__':
+    app.run()
