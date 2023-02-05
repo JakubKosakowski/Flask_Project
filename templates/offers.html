@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}
+Offers
+{% endblock %}
+
+{% block content %}
+  <h1>Current shop offers</h1>
+  <div class="offers">
+  {% for name, desc, comp_name, type_name in data %}
+    <div class="offer">
+      {{ name }}<br>
+      {{ desc }}<br>
+      {{ comp_name }}<br>
+      {{ type_name }}<br><br>
+    </div>
+  {% endfor %}
+  </div>
+{% endblock %}

@@ -14,6 +14,19 @@ def home():
     )
     return render_template('home.html', data=data)
 
+@app.route('/offers')
+def offers():
+    data = execute_sql(
+        "datab",
+        """
+            SELECT p.name, p.description, s.company_name, t.name
+            FROM product p
+            JOIN type_of_product t ON p.type_of_product_id = t.id
+            JOIN supplier s ON p.supplier_id = s.id;
+        """
+    )
+    return render_template('offers.html', data=data)
+
 
 @app.route('/about')
 def about():
@@ -21,4 +34,4 @@ def about():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
