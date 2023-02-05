@@ -11,10 +11,10 @@ Home Page
     <div class="element">Donec libero dolor, posuere sed neque eget, dignissim pellentesque dolor.</div>
 </div>
 <div>
-    <ul>
-        {% for row in data %}
-            <li>{{ row[1] }} {{row[2]}}</li>
+    <ol>
+        {% for name, address, email in data%}
+            <li>{{ name }} | {{ address }} | {{ email }}</li>
         {% endfor %}
-    </ul>
+    </ol>
 </div>
 {% endblock %}
