@@ -1,5 +1,7 @@
 ALTER TABLE product ADD COLUMN image VARCHAR(200) DEFAULT NULL;
 
+UPDATE product SET image = 'caykur_rize_turist_tea_image.png' WHERE id = 1;
+
 UPDATE product SET image = 'caykur_earl_grey_image.png' WHERE id = 2;
 
 UPDATE product SET image = 'caykur_filiz_tea_image.png' WHERE id = 3;
