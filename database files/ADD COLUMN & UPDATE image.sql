@@ -16,6 +16,8 @@ UPDATE product SET image = 'basilur_green_valley_image.png' WHERE id = 7;
 
 UPDATE product SET image = 'basilur_persian_earl_grey_image.png' WHERE id = 8;
 
+UPDATE product SET image = 'basilur_chinese_collection_pu_ehr_image.png' WHERE id = 9;
+
 UPDATE product SET image = 'lipton_earl_grey_image.png' WHERE id = 10;
 
 UPDATE product SET image = 'lipton_green_tea_loose_image.png' WHERE id = 11;
