@@ -19,7 +19,7 @@ def offers():
     data = execute_sql(
         "datab",
         """
-            SELECT p.name, p.description, s.company_name, t.name
+            SELECT p.name, p.description, s.company_name, t.name, p.image
             FROM product p
             JOIN type_of_product t ON p.type_of_product_id = t.id
             JOIN supplier s ON p.supplier_id = s.id;
