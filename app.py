@@ -20,7 +20,7 @@ def offers():
         data = execute_sql(
             "datab",
             """
-                SELECT p.name, p.description, p.image, p.unit_price
+                SELECT p.id, p.name, p.description, p.image, p.unit_price
                 FROM product p
                 JOIN type_of_product t ON p.type_of_product_id = t.id
                 JOIN supplier s ON p.supplier_id = s.id;
@@ -46,7 +46,7 @@ def offers():
             data = execute_sql(
                 "datab",
                 f"""
-                    SELECT p.name, p.description, p.image, p.unit_price
+                    SELECT p.id, p.name, p.description, p.image, p.unit_price
                     FROM product p
                     JOIN type_of_product t ON p.type_of_product_id = t.id
                     JOIN supplier s ON p.supplier_id = s.id
@@ -55,7 +55,7 @@ def offers():
             )
         else:
             sql_code = f"""
-                    SELECT p.name, p.description, p.image, p.unit_price
+                    SELECT p.id, p.name, p.description, p.image, p.unit_price
                     FROM product p
                     JOIN type_of_product t ON p.type_of_product_id = t.id
                     JOIN supplier s ON p.supplier_id = s.id
@@ -71,6 +71,31 @@ def offers():
 
         return render_template('offers.html', data=data, tea_type=tea_type)
 
+
+@app.route('/product_details/<int:id>')
+def product_details(id):
+    details = execute_sql(
+        "datab",
+        """
+            SELECT
+                p.name
+                , p.description
+                , p.medical_properties
+                , p.unit_price
+                , p.quentity_per_unit
+                , s.company_name
+                , t.name
+                , t.brewing_time
+                , t.brewing_temperature
+                , t.amount_per_cup
+            FROM product p
+            JOIN type_of_product t ON p.type_of_product_id = t.id
+            JOIN supplier s ON p.supplier_id = s.id
+            WHERE p.id = %s
+        """,
+        (id,)
+    )
+    return render_template('product_details.html', details=details)
 
 @app.route('/about')
 def about():
