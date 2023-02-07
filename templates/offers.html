@@ -16,7 +16,7 @@ Offers
       <button type="submit" name="send" value="send">Search</button>
   </form><br><br>
   <div class="offers">
-  {% for name, desc, image, price in data %}
+  {% for id, name, desc, image, price in data %}
     <div class="offer">
       {% if image %}
         <img src="/static/images/{{image}}" style="width: 200px; height:200px"/><br>
@@ -24,7 +24,7 @@ Offers
       {{ name }}<br>
       {{ desc }}<br>
       {{ price }}<br><br>
-      <a href="{{ url_for('home') }}">
+      <a href="{{ url_for('product_details', id=id) }}">
           <span class="link"></span>
       </a>
     </div>
