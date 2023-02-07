@@ -20,7 +20,7 @@ def offers():
         data = execute_sql(
             "datab",
             """
-                SELECT p.name, p.description, s.company_name, t.name, p.image
+                SELECT p.name, p.description, p.image, p.unit_price
                 FROM product p
                 JOIN type_of_product t ON p.type_of_product_id = t.id
                 JOIN supplier s ON p.supplier_id = s.id;
@@ -46,7 +46,7 @@ def offers():
             data = execute_sql(
                 "datab",
                 f"""
-                    SELECT p.name, p.description, s.company_name, t.name, p.image
+                    SELECT p.name, p.description, p.image, p.unit_price
                     FROM product p
                     JOIN type_of_product t ON p.type_of_product_id = t.id
                     JOIN supplier s ON p.supplier_id = s.id
@@ -55,7 +55,7 @@ def offers():
             )
         else:
             sql_code = f"""
-                    SELECT p.name, p.description, s.company_name, t.name, p.image
+                    SELECT p.name, p.description, p.image, p.unit_price
                     FROM product p
                     JOIN type_of_product t ON p.type_of_product_id = t.id
                     JOIN supplier s ON p.supplier_id = s.id
