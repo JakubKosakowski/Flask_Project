@@ -60,7 +60,15 @@ def offers():
                     JOIN type_of_product t ON p.type_of_product_id = t.id
                     JOIN supplier s ON p.supplier_id = s.id
                     WHERE """
-            
+            for tea in tea_type:
+                if request.form.get(f'{tea[0]}'):
+                    sql_code += f"""t.name = '{tea[0]}' OR """
+            sql_code = sql_code[:-4] + """;"""
+            data = execute_sql(
+                "datab",
+                sql_code
+            )
+
         return render_template('offers.html', data=data, tea_type=tea_type)
 
 
