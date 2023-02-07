@@ -6,6 +6,15 @@ Offers
 
 {% block content %}
   <h1>Current shop offers</h1>
+  <form action="" method="POST">
+      <label for="phrase">Search</label>
+      <input type="text" name="phrase" id="phrase"/>
+      {% for type in tea_type %}
+        <input type="checkbox" id="{{ type[0] }}" name="{{ type[0] }}"/>
+        <label for="{{ type[0] }}">{{ type[0] }}</label>
+      {% endfor %}
+      <button type="submit" name="send" value="send">Search</button>
+  </form><br><br>
   <div class="offers">
   {% for name, desc, comp_name, type_name, image in data %}
     <div class="offer">
