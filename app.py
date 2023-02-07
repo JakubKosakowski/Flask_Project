@@ -26,7 +26,14 @@ def offers():
                 JOIN supplier s ON p.supplier_id = s.id;
             """
         )
-        return render_template('offers.html', data=data)
+        tea_type = execute_sql(
+            "datab",
+            """
+                SELECT name
+                FROM type_of_product;
+            """
+        )
+        return render_template('offers.html', data=data, tea_type=tea_type)
     else:
         data = execute_sql(
             "datab",
