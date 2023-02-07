@@ -7,6 +7,11 @@ Offers
 {% block content %}
   <h1>Current shop offers</h1>
   <div class="offers">
+      <form action="" method="POST">
+          <label for="phrase">Search</label>
+          <input type="text" name="phrase" id="phrase"/>
+          <button type="submit" name="send" value="send">Search</button>
+      </form>
   {% for name, desc, comp_name, type_name, image in data %}
     <div class="offer">
       {% if image %}

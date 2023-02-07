@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from sql_utils import execute_sql
 
 app = Flask(__name__)
@@ -14,18 +14,21 @@ def home():
     )
     return render_template('home.html', data=data)
 
-@app.route('/offers')
+@app.route('/offers', methods=['GET', 'POST'])
 def offers():
-    data = execute_sql(
-        "datab",
-        """
-            SELECT p.name, p.description, s.company_name, t.name, p.image
-            FROM product p
-            JOIN type_of_product t ON p.type_of_product_id = t.id
-            JOIN supplier s ON p.supplier_id = s.id;
-        """
-    )
-    return render_template('offers.html', data=data)
+    if request.method == 'GET':
+        data = execute_sql(
+            "datab",
+            """
+                SELECT p.name, p.description, s.company_name, t.name, p.image
+                FROM product p
+                JOIN type_of_product t ON p.type_of_product_id = t.id
+                JOIN supplier s ON p.supplier_id = s.id;
+            """
+        )
+        return render_template('offers.html', data=data)
+    else:
+        pass
 
 
 @app.route('/about')
