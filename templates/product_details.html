@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Product details
+{% endblock %}
+
+{% block content %}
+    <div>
+        {% for name, desc, med, price, quan, company, type, brew_time, brew_temp, amount in details%}
+        <h1>Product name: </h1>{{ name }}<br>
+        <h1>Description: </h1>{{ desc }}<br>
+        {% if med %}<h1>Medical properties: </h1>{{ med }}<br>{% endif %}
+        <h1>Price per unit: </h1>{{ price }}<br>
+        <h1>Quantity per unit: </h1>{{ quan }}<br>
+        <h1>Company name: </h1>{{ company }}<br>
+        <h1>Type of tea: </h1>{{ type }}<br>
+        <h1>Brewing time: </h1>{{ brew_time }}<br>
+        <h1>Brewing temperature: </h1>{{ brew_temp }}<br>
+        <h1>Amount: </h1>{{ amount }}<br>
+        {% endfor %}
+    </div>
+{% endblock %}
