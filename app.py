@@ -35,17 +35,33 @@ def offers():
         )
         return render_template('offers.html', data=data, tea_type=tea_type)
     else:
-        data = execute_sql(
+        tea_type = execute_sql(
             "datab",
-            f"""
-                SELECT p.name, p.description, s.company_name, t.name, p.image
-                FROM product p
-                JOIN type_of_product t ON p.type_of_product_id = t.id
-                JOIN supplier s ON p.supplier_id = s.id
-                WHERE p.name ILIKE '%{request.form['phrase']}%';
+            """
+                SELECT name
+                FROM type_of_product;
             """
         )
-        return render_template('offers.html', data=data)
+        if request.form['phrase'] != '':
+            data = execute_sql(
+                "datab",
+                f"""
+                    SELECT p.name, p.description, s.company_name, t.name, p.image
+                    FROM product p
+                    JOIN type_of_product t ON p.type_of_product_id = t.id
+                    JOIN supplier s ON p.supplier_id = s.id
+                    WHERE p.name ILIKE '%{request.form['phrase']}%';
+                """
+            )
+        else:
+            sql_code = f"""
+                    SELECT p.name, p.description, s.company_name, t.name, p.image
+                    FROM product p
+                    JOIN type_of_product t ON p.type_of_product_id = t.id
+                    JOIN supplier s ON p.supplier_id = s.id
+                    WHERE """
+            
+        return render_template('offers.html', data=data, tea_type=tea_type)
 
 
 @app.route('/about')
