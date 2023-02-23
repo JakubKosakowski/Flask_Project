@@ -45,6 +45,12 @@ def offers():
         if request.form.get('phrase') != '':
             flag = False
             sql_code += f"""p.name ILIKE '%{request.form['phrase']}%' AND """
+        if request.form['price_min']:
+            flag = False
+            sql_code += f"""p.unit_price > {request.form['price_min']} AND """
+        if request.form['price_max']:
+            flag = False
+            sql_code += f"""p.unit_price < {request.form['price_max']} AND """
         for tea in tea_type:
             if request.form.get(f'{tea[0]}'):
                 flag = False
