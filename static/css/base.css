@@ -40,3 +40,9 @@ body{
     left: 0;
     z-index: 1;
 }
+
+.price{
+    width: 70px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
