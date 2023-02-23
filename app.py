@@ -54,6 +54,7 @@ def offers():
                 """
             )
         else:
+            flag = True
             sql_code = f"""
                     SELECT p.id, p.name, p.description, p.image, p.unit_price
                     FROM product p
@@ -62,8 +63,12 @@ def offers():
                     WHERE """
             for tea in tea_type:
                 if request.form.get(f'{tea[0]}'):
+                    flag = False
                     sql_code += f"""t.name = '{tea[0]}' OR """
-            sql_code = sql_code[:-4] + """;"""
+            if not flag:
+                sql_code = sql_code[:-4] + """;"""
+            else:
+                sql_code = sql_code[:-6] + """;"""
             data = execute_sql(
                 "datab",
                 sql_code
