@@ -7,12 +7,15 @@ Offers
 {% block content %}
   <h1>Current shop offers</h1>
   <form action="" method="POST">
-      <label for="phrase">Search</label>
-      <input type="text" name="phrase" id="phrase"/>
+      <label for="phrase">Search: </label>
+      <input type="text" name="phrase" id="phrase"/><br>
       {% for type in tea_type %}
         <input type="checkbox" id="{{ type[0] }}" name="{{ type[0] }}"/>
         <label for="{{ type[0] }}">{{ type[0] }}</label>
-      {% endfor %}
+      {% endfor %}<br>
+      Price:
+      <input type="number" name="min_price" class="price">
+      <input type="number" name="min_price" class="price">
       <button type="submit" name="send" value="send">Search</button>
   </form><br><br>
   <div class="offers">
